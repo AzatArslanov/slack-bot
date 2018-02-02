@@ -14,7 +14,7 @@ class BotCore(@Value("\${jira.url}") val jiraUrl: String) {
 
         if (messageContent.contains(Phrases.CALL_DEVOPS)) {
             val callDevops = SlackPreparedMessage.Builder()
-                    .withMessage(Phrases.DEVOPS)
+                    .withMessage(Phrases.CALL_DEVOPS_REPLAY)
                     .withLinkNames(true)
                     .build()
             result.add(callDevops)
