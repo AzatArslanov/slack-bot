@@ -22,10 +22,10 @@ class BotCore(@Value("\${jira.url}") val jiraUrl: String) {
         findFunnyReplies(messageContent)
                 .union(findJiraLinks(messageContent))
                 .forEach {
-                    val jira = SlackPreparedMessage.Builder()
+                    val replay = SlackPreparedMessage.Builder()
                             .withMessage(it)
                             .build()
-                    result.add(jira)
+                    result.add(replay)
                 }
         return result
     }
@@ -43,6 +43,7 @@ class BotCore(@Value("\${jira.url}") val jiraUrl: String) {
         when {
             message.contains(Phrases.IT_IS_OKAY) -> result.add(Phrases.IT_IS_OKAY_REPLAY)
             message.contains(Phrases.ALL_IN_FAVOR) -> result.add(Phrases.ALL_IN_FAVOR_REPLAY)
+            message.contains(Phrases.SPRINT_ENG) || message.contains(Phrases.SPRINT_RUS) -> result.add(Phrases.SPRINT_REPLAY)
         }
         return result
     }

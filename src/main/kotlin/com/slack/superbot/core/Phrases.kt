@@ -7,4 +7,7 @@ object Phrases {
     const val IT_IS_OKAY_REPLAY = "лично я не против"
     const val ALL_IN_FAVOR = "все за"
     const val ALL_IN_FAVOR_REPLAY = "если все за, я тогда тоже не против"
+    const val SPRINT_ENG = "sprint"
+    const val SPRINT_RUS = "спринт"
+    const val SPRINT_REPLAY = "ура! ура! ура!"
 }
