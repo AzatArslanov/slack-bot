@@ -10,4 +10,7 @@ object Phrases {
     const val SPRINT_ENG = "sprint"
     const val SPRINT_RUS = "спринт"
     const val SPRINT_REPLAY = "ура! ура! ура!"
+    const val SIMPLE_DIRECT_REPLAY = "и тебе привет"
+    const val WEATHER = "погод"
+    const val WEATHER_REPLAY = "текущая температура %s, а чувствуется как %s"
 }

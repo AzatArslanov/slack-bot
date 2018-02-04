@@ -1,17 +1,26 @@
 package com.slack.superbot.core
 
+import com.nhaarman.mockito_kotlin.doReturn
+import com.nhaarman.mockito_kotlin.mock
+import com.slack.superbot.api.WeatherApi
+import com.ullink.slack.simpleslackapi.SlackPersona
+import com.ullink.slack.simpleslackapi.SlackSession
 import com.ullink.slack.simpleslackapi.events.SlackMessagePosted
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
 
-import org.junit.jupiter.api.Assertions.*
 
 internal class BotCoreTest {
     private val jiraUrl = "jira.url"
-    private val botCore : BotCore
-
-    init {
-        this.botCore = BotCore(jiraUrl)
+    private val slackPersona : SlackPersona = mock {
+        on { id } doReturn "id"
     }
+    private val session : SlackSession = mock {
+        on { sessionPersona() } doReturn slackPersona
+    }
+    private val weatherApi : WeatherApi = mock {  }
+    private val botCore : BotCore = BotCore(jiraUrl, session, weatherApi)
 
     @Test
     fun processItIsOkay() {

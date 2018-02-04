@@ -43,8 +43,9 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter'
 
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junit_version"
     testCompile "com.nhaarman:mockito-kotlin-kt1.1:$mockito_kotlin_version"
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 compileKotlin {

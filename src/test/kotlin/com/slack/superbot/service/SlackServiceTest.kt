@@ -5,9 +5,8 @@ import com.slack.superbot.core.BotCore
 import com.ullink.slack.simpleslackapi.SlackSession
 import com.ullink.slack.simpleslackapi.SlackUser
 import com.ullink.slack.simpleslackapi.events.SlackMessagePosted
-import org.junit.jupiter.api.Test
+import org.junit.Test
 
-import org.junit.jupiter.api.Assertions.*
 
 internal class SlackServiceTest {
 
