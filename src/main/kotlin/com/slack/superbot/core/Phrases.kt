@@ -17,4 +17,5 @@ object Phrases {
 
     const val TIMEOUT_EXCEPTION = "сервер %s не ответил в течение %s миллисекунд"
     const val VERSION_ERROR = "VERSION.html сформирован некорректно"
+    const val UNKNOWN_HOST = "Неизвестный адрес %s"
 }
