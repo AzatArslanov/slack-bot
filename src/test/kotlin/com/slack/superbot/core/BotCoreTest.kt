@@ -1,8 +1,8 @@
 package com.slack.superbot.core
 
-import com.nhaarman.mockito_kotlin.doReturn
-import com.nhaarman.mockito_kotlin.mock
-import com.slack.superbot.api.WeatherApi
+import com.nhaarman.mockito_kotlin.*
+import com.slack.superbot.api.SierraWebVersion
+import com.slack.superbot.api.Weather
 import com.ullink.slack.simpleslackapi.SlackPersona
 import com.ullink.slack.simpleslackapi.SlackSession
 import com.ullink.slack.simpleslackapi.events.SlackMessagePosted
@@ -19,8 +19,9 @@ internal class BotCoreTest {
     private val session : SlackSession = mock {
         on { sessionPersona() } doReturn slackPersona
     }
-    private val weatherApi : WeatherApi = mock {  }
-    private val botCore : BotCore = BotCore(jiraUrl, session, weatherApi)
+    private val sierraWebVersion : SierraWebVersion = mock {}
+    private val weather: Weather = mock {}
+    private val botCore : BotCore = BotCore(jiraUrl, session, weather, sierraWebVersion)
 
     @Test
     fun processItIsOkay() {
@@ -59,5 +60,16 @@ internal class BotCoreTest {
 
         assertEquals(1, listToSend.size)
         assertEquals(Phrases.SPRINT_REPLAY, listToSend[0].message)
+    }
+
+    @Test
+    fun processSierraWebVersion() {
+        val server = "5023"
+        val messageContent = "${Phrases.SIERRA_SERVER_INFO} на $server"
+        val messagePosted = SlackMessagePosted(messageContent, null, null, null, null, null)
+        val listToSend = botCore.process(messagePosted)
+
+        assertEquals(1, listToSend.size)
+        verify(sierraWebVersion, times(1)).getVersion(eq(server))
     }
 }

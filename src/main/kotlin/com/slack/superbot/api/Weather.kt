@@ -14,7 +14,7 @@ fun InputStream.readTextAndClose(charset: Charset = Charsets.UTF_8): String {
 }
 
 @Component
-class WeatherApi(@Value("\${weather.token}") val token: String, val httpClient: HttpClient) {
+class Weather(@Value("\${weather.token}") val token: String, val httpClient: HttpClient) {
     private val WEATHER_API_URL = "https://api.apixu.com"
 
     fun getSaintPetersburgCurrentWeather() : String {

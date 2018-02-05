@@ -1,6 +1,7 @@
 package com.slack.superbot.core
 
-import com.slack.superbot.api.WeatherApi
+import com.slack.superbot.api.SierraWebVersion
+import com.slack.superbot.api.Weather
 import com.ullink.slack.simpleslackapi.SlackPreparedMessage
 import com.ullink.slack.simpleslackapi.SlackSession
 import com.ullink.slack.simpleslackapi.events.SlackMessagePosted
@@ -11,7 +12,8 @@ import org.springframework.stereotype.Component
 class BotCore(
         @Value("\${jira.url}") val jiraUrl: String,
         val session: SlackSession,
-        val weatherApi: WeatherApi
+        val weather: Weather,
+        val sierraWebVersion: SierraWebVersion
 ) {
 
     fun process(message: SlackMessagePosted) : List<SlackPreparedMessage> {
@@ -66,8 +68,14 @@ class BotCore(
 
     private fun findActions(message: String) : MutableList<String> {
         val result = ArrayList<String>()
+        val sierraServerRegex = Regex("\\d{4}")
         when {
-            message.contains(Phrases.WEATHER) -> result.add(weatherApi.getSaintPetersburgCurrentWeather())
+            message.contains(Phrases.WEATHER) -> result.add(weather.getSaintPetersburgCurrentWeather())
+            message.contains(Phrases.SIERRA_SERVER_INFO) && message.contains(sierraServerRegex) -> {
+                sierraServerRegex.find(message)?.let {
+                    result.add(sierraWebVersion.getVersion(it.value))
+                }
+            }
 
         }
         return result

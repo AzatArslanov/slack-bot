@@ -13,4 +13,8 @@ object Phrases {
     const val SIMPLE_DIRECT_REPLAY = "и тебе привет"
     const val WEATHER = "погод"
     const val WEATHER_REPLAY = "текущая температура %s, а чувствуется как %s"
+    const val SIERRA_SERVER_INFO = "версия"
+
+    const val TIMEOUT_EXCEPTION = "сервер %s не ответил в течение %s миллисекунд"
+    const val VERSION_ERROR = "VERSION.html сформирован некорректно"
 }
