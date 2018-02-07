@@ -14,6 +14,9 @@ object Phrases {
     const val WEATHER = "погод"
     const val WEATHER_REPLAY = "текущая температура %s, а чувствуется как %s"
     const val SIERRA_SERVER_INFO = "версия"
+    const val FALSC_RUS = "фальск"
+    const val FALSC_ENG = "falsc"
+    const val FALSC_REPLAY = "Эх, фальска же больше нет, а вы напоминаете"
 
     const val TIMEOUT_EXCEPTION = "сервер %s не ответил в течение %s миллисекунд"
     const val VERSION_ERROR = "VERSION.html сформирован некорректно"
