@@ -45,22 +45,6 @@ internal class BotCoreTest {
         assertTrue(listToSend[1].message.contains("SIERRA-22"))
     }
 
-    @Test
-    fun processSprint() {
-        var messageContent = Phrases.SPRINT_RUS
-        var messagePosted = SlackMessagePosted(messageContent, null, null, null, null, null)
-        var listToSend = botCore.process(messagePosted)
-
-        assertEquals(1, listToSend.size)
-        assertEquals(Phrases.SPRINT_REPLAY, listToSend[0].message)
-
-        messageContent = Phrases.SPRINT_ENG
-        messagePosted = SlackMessagePosted(messageContent, null, null, null, null, null)
-        listToSend = botCore.process(messagePosted)
-
-        assertEquals(1, listToSend.size)
-        assertEquals(Phrases.SPRINT_REPLAY, listToSend[0].message)
-    }
 
     @Test
     fun processSierraWebVersion() {

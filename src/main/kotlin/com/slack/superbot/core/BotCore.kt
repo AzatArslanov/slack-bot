@@ -61,8 +61,6 @@ class BotCore(
         when {
             message.contains(Phrases.IT_IS_OKAY) -> result.add(Phrases.IT_IS_OKAY_REPLAY)
             message.contains(Phrases.ALL_IN_FAVOR) -> result.add(Phrases.ALL_IN_FAVOR_REPLAY)
-            message.contains(Phrases.SPRINT_ENG) || message.contains(Phrases.SPRINT_RUS) -> result.add(Phrases.SPRINT_REPLAY)
-            message.contains(Phrases.FALSC_ENG) || message.contains(Phrases.FALSC_RUS) -> result.add(Phrases.FALSC_REPLAY)
         }
         return result
     }

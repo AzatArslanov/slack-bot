@@ -24,6 +24,7 @@ class Weather(@Value("\${weather.token}") val token: String, val httpClient: Htt
         val current = responseJson.get("current")?.asJsonObject?.get("temp_c")?.asString
         val feelsLike = responseJson.get("current")?.asJsonObject?.get("feelslike_c")?.asString
         return Phrases.WEATHER_REPLAY.format(current, feelsLike)
+
     }
 
 }
