@@ -1,7 +1,8 @@
 package com.slack.superbot.core
 
 object Phrases {
-    const val CALL_DEVOPS = "призываю девопсов"
+    const val CALL = "приз"
+    const val DEVOPS = "девопс"
     const val CALL_DEVOPS_REPLAY = "<@U8K82BHQV>, <@U8QQCPZNE> и <@U8KPS6077>, тут без вас никак"
     const val IT_IS_OKAY = "не против"
     const val IT_IS_OKAY_REPLAY = "лично я не против"

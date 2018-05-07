@@ -42,4 +42,15 @@ internal class BotCoreTest {
         assertTrue(listToSend[1].message.contains(jiraUrl))
         assertTrue(listToSend[1].message.contains("SIERRA-22"))
     }
+
+    @Test
+    fun callDevops() {
+        var listToSend = botCore.process(SlackMessagePosted("призываю девопсов", null, null, null, null, null))
+        assertEquals(1, listToSend.size)
+        assertEquals(Phrases.CALL_DEVOPS_REPLAY, listToSend[0].message)
+
+        listToSend = botCore.process(SlackMessagePosted("можно призвать девопсов", null, null, null, null, null))
+        assertEquals(1, listToSend.size)
+        assertEquals(Phrases.CALL_DEVOPS_REPLAY, listToSend[0].message)
+    }
 }

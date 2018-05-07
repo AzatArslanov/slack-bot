@@ -25,7 +25,7 @@ class BotCore(
             result.add(hello)
         }
 
-        if (messageContent.contains(Phrases.CALL_DEVOPS)) {
+        if (messageContent.contains(Phrases.CALL) && messageContent.contains(Phrases.DEVOPS)) {
             val callDevops = SlackPreparedMessage.Builder()
                     .withMessage(Phrases.CALL_DEVOPS_REPLAY)
                     .withLinkNames(true)
